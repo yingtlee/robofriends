@@ -32,7 +32,7 @@ class App extends Component{
         if(robots.length ===0){
             return (<h1 className='f1'>Loading</h1>);
         }
-        else{            
+        else{
             return (
                 <div className='tc'>
                     <h1 className='f1'>RoboFriends</h1>
