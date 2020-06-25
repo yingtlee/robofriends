@@ -35,22 +35,19 @@ class App extends Component{
             return robot.name.toLowerCase().includes(searchField.toLowerCase())
         });
 
-        if(pending){
-            return (<h1 className='f1'>Loading</h1>);
-        }
-        else{
-            return (
-                <div className='tc'>
-                    <h1 className='f1'>RoboFriends</h1>
-                    <SearchBox searchChange={onSearchChange}/>
-                    <Scroll>
-                        <ErrorBoundry>
-                            <CardList robots={filterRobots}/>
-                        </ErrorBoundry>
-                    </Scroll>
-                </div>
-            );
-        }
+        return (
+            <div className='tc'>
+              <h1 className='f1'>RoboFriends</h1>
+              <SearchBox searchChange={onSearchChange}/>
+              <Scroll>
+                { pending ? <h1>Loading</h1> :
+                  <ErrorBoundry>
+                    <CardList robots={filterRobots} />
+                  </ErrorBoundry>
+                }
+              </Scroll>
+            </div>
+          );
     }
 }
 
